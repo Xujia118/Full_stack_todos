@@ -3,6 +3,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AddTask from "./AddTask";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+
+
+import "./Task.css";
+
 function Tasks() {
   const [taskList, setTaskList] = useState([]);
   const navigate = useNavigate();
@@ -31,19 +38,30 @@ function Tasks() {
   return (
     <>
       <AddTask />
-      <ul>
+      <ul className="todos-menu">
         {taskList.map((task) => (
-          <li key={task.id}>
-            {task.title}
-            {task.content}
-            <button
-              onClick={() => {
-                navigate(`edit/${task.id}`, { state: { task } });
-              }}
-            >
-              Edit
-            </button>
-            <button onClick={() => handleDelete(task.id)}>Delete</button>
+          <li className="menu-item" key={task.id}>
+            <div className="title-container">
+              <p className="task title">{task.title}</p>
+              <div className="button-container">
+                <button
+                  className="menu-button"
+                  onClick={() => {
+                    navigate(`edit/${task.id}`, { state: { task } });
+                  }}
+                >
+                  
+                  <FontAwesomeIcon icon={faPenToSquare} />
+                </button>
+                <button
+                  className="menu-button"
+                  onClick={() => handleDelete(task.id)}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </div>
+            </div>
+            <p className="task content">{task.content}</p>
           </li>
         ))}
       </ul>

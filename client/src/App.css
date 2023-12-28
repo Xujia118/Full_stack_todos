@@ -1,0 +1,28 @@
+body {
+    --background-color: rgb(241, 241, 241);
+    --text-color: black;
+
+    --panel-color: rgb(236, 236, 236);
+    --panel-text-color: black;
+    --panel-color-hover: rgb(82, 82, 82);
+    --panel-text-color-hover: rgb(255, 255, 255);
+
+    --button-background-color: red;
+    --button-text-color: black;
+
+}
+
+body:dark {
+
+}
+
+
+body, html {
+    margin: 0;
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.6rem;
+
+
+}
+

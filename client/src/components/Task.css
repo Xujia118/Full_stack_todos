@@ -1,0 +1,50 @@
+.todos-menu {
+    margin: 1rem;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+
+}
+
+.menu-item {
+    list-style: none;
+
+    grid-column: span 12;
+
+    background-color: var(--background-color);
+    
+    border-radius: 5px;
+
+    padding: 0.5rem 2rem;
+}
+
+.task {
+    margin: 0;
+}
+
+.task::first-letter {
+    text-transform: uppercase;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.menu-button {
+    border: none;
+    background-color: inherit;
+}
+
+.menu-button:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 44rem) {
+    .menu-item {
+        grid-column: span 6;
+    }
+}

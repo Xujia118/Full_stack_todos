@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import "./AddTask.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 function AddTask() {
   const [task, setTask] = useState({
     title: "",
@@ -22,14 +26,27 @@ function AddTask() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Task: </label>
-        <input type="text" name="title" id="title" onChange={handleAdd} />
+      <form className="add-form" onSubmit={handleSubmit}>
 
-        <label htmlFor="content">Task description: </label>
-        <input type="text" name="content" id="content" onChange={handleAdd} />
+        <input
+          className="form-input"
+          type="text"
+          name="title"
+          placeholder="Add Task"
+          onChange={handleAdd}
+        />
 
-        <button>Add Task</button>
+        <input
+          className="form-input"
+          type="text"
+          name="content"
+          placeholder="Add note"
+          onChange={handleAdd}
+        />
+
+        <button className="form-button">
+        <FontAwesomeIcon icon={faPlus} />
+        </button>
       </form>
     </div>
   );
